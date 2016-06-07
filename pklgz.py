@@ -7,7 +7,8 @@ from glob import glob
 import numpy as np
 import pandas as pd
 
-def dir_to_dataset(glob_files, loc_train_labels=""):
+# def dir_to_dataset(glob_files, loc_train_labels=""):
+def dir_to_dataset(glob_files):
     print("Gonna process:\n\t %s"%glob_files)
     dataset = []
     for file_count, file_name in enumerate( sorted(glob(glob_files),key=len) ):
@@ -17,17 +18,19 @@ def dir_to_dataset(glob_files, loc_train_labels=""):
         dataset.append(pixels)
         if file_count % 1000 == 0:
             print("\t %s files processed"%file_count)
+
+    return np.array(dataset)
     # outfile = glob_files+"out"
     # np.save(outfile, dataset)
-    if len(loc_train_labels) > 0:
-        df = pd.read_csv(loc_train_labels)
-        return np.array(dataset), np.array(df["Class"])
-    else:
-        return np.array(dataset)
+    # if len(loc_train_labels) > 0:
+    #     df = pd.read_csv(loc_train_labels)
+    #     return np.array(dataset), np.array(df["Class"])
+    # else:
+    #     return np.array(dataset)
 
 
-# 
-Data, y = dir_to_dataset("trainMNISTForm\\*.BMP","trainLabels.csv")
+# 클래스별 데이터 삽입
+Data, y = dir_to_dataset("bike_resize\\*.jpg")
 # Data and labels are read 
 
 train_set_x = Data[:2093]
@@ -38,7 +41,7 @@ val_set_y = y[2094:4187]
 test_set_y = y[4188:6281]
 # Divided dataset into 3 parts. I had 6281 images.
 
-Data, y = dir_to_dataset("trainMNISTForm\\*.BMP","trainLabels.csv")
+Data, y = dir_to_dataset("bus_resize\\*.jpg","trainLabels.csv")
 # Data and labels are read 
 
 train_set_x = Data[:2093]

@@ -33,23 +33,26 @@ def dir_to_dataset(glob_files):
 Data, y = dir_to_dataset("bike_resize\\*.jpg")
 # Data and labels are read 
 
-train_set_x = Data[:2093]
-val_set_x = Data[2094:4187]
-test_set_x = Data[4188:6281]
-train_set_y = y[:2093]
-val_set_y = y[2094:4187]
-test_set_y = y[4188:6281]
+train_set_x = Data[:500]
+val_set_x = Data[501:600]
+test_set_x = Data[601:840]
+for i in range(500):
+	train_set_y.append('0')
+for i in range(100):
+	val_set_y.append('0')
+for i in range(240):
+	test_set_y.append('0')
 # Divided dataset into 3 parts. I had 6281 images.
 
-Data, y = dir_to_dataset("bus_resize\\*.jpg","trainLabels.csv")
-# Data and labels are read 
+# Data, y = dir_to_dataset("bus_resize\\*.jpg")
+# # Data and labels are read 
 
-train_set_x = Data[:2093]
-val_set_x = Data[2094:4187]
-test_set_x = Data[4188:6281]
-train_set_y = y[:2093]
-val_set_y = y[2094:4187]
-test_set_y = y[4188:6281]
+# train_set_x = Data[:2093]
+# val_set_x = Data[2094:4187]
+# test_set_x = Data[4188:6281]
+# train_set_y = y[:2093]
+# val_set_y = y[2094:4187]
+# test_set_y = y[4188:6281]
 # Divided dataset into 3 parts. I had 6281 images.
 train_set = train_set_x, train_set_y
 val_set = val_set_x, val_set_y

@@ -30,9 +30,12 @@ def dir_to_dataset(glob_files):
 
 
 # 클래스별 데이터 삽입
-Data, y = dir_to_dataset("bike_resize\\*.jpg")
+Data = dir_to_dataset("bike_resize\\*.jpg")
 # Data and labels are read 
 
+train_set_y = list()
+val_set_y = list()
+test_set_y = list()
 train_set_x = Data[:500]
 val_set_x = Data[501:600]
 test_set_x = Data[601:840]

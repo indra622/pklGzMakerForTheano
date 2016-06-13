@@ -16,7 +16,7 @@ def dir_to_dataset(glob_files):
         img = Image.open(file_name).convert('LA') #tograyscale
         pixels = [f[0] for f in list(img.getdata())]
         dataset.append(pixels)
-        if file_count % 1000 == 0:
+        if file_count % 500 == 0:
             print("\t %s files processed"%file_count)
 
     return np.array(dataset)
@@ -36,6 +36,8 @@ Data = dir_to_dataset("bike_resize\\*.jpg")
 train_set_y = list()
 val_set_y = list()
 test_set_y = list()
+
+
 train_set_x = Data[:588]
 val_set_x = Data[589:689]
 test_set_x = Data[690:840]
@@ -50,7 +52,7 @@ for i in range(152):
 Data = dir_to_dataset("bus_resize\\*.jpg")
 # Data and labels are read 
 
-train_set_x += Data[:1911]
+train_set_x += Data[:500]
 val_set_x += Data[1912:2012]
 test_set_x += Data[2013:2730]
 for i in range(1911):

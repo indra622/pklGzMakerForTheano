@@ -36,69 +36,69 @@ Data = dir_to_dataset("bike_resize\\*.jpg")
 train_set_y = list()
 val_set_y = list()
 test_set_y = list()
-train_set_x = Data[:500]
-val_set_x = Data[501:600]
-test_set_x = Data[601:840]
-for i in range(500):
+train_set_x = Data[:588]
+val_set_x = Data[589:689]
+test_set_x = Data[690:840]
+for i in range(588):
 	train_set_y.append('0')
 for i in range(100):
 	val_set_y.append('0')
-for i in range(240):
+for i in range(152):
 	test_set_y.append('0')
 # Divided dataset into 3 parts. I had 6281 images.
 
 Data = dir_to_dataset("bus_resize\\*.jpg")
 # Data and labels are read 
 
-train_set_x += Data[:500]
-val_set_x += Data[501:600]
-test_set_x += Data[601:840]
-for i in range(500):
+train_set_x += Data[:1911]
+val_set_x += Data[1912:2012]
+test_set_x += Data[2013:2730]
+for i in range(1911):
     train_set_y.append('1')
 for i in range(100):
     val_set_y.append('1')
-for i in range(240):
+for i in range(719):
     test_set_y.append('1')
 
 Data = dir_to_dataset("sedan_resize\\*.jpg")
 # Data and labels are read 
 
-train_set_x += Data[:500]
-val_set_x += Data[501:600]
-test_set_x += Data[601:840]
-for i in range(500):
+train_set_x += Data[:18081]
+val_set_x += Data[18082:18182]
+test_set_x += Data[18183:25830]
+for i in range(18081):
     train_set_y.append('2')
 for i in range(100):
     val_set_y.append('2')
-for i in range(240):
+for i in range(7649):
     test_set_y.append('2')
 
 
 Data = dir_to_dataset("truck_resize\\*.jpg")
 # Data and labels are read 
 
-train_set_x += Data[:500]
-val_set_x += Data[501:600]
-test_set_x += Data[601:840]
-for i in range(500):
+train_set_x += Data[:8526]
+val_set_x += Data[8527:8627]
+test_set_x += Data[8628:12180]
+for i in range(8526):
     train_set_y.append('3')
 for i in range(100):
     val_set_y.append('3')
-for i in range(240):
+for i in range(3554):
     test_set_y.append('3')
 
 
 Data = dir_to_dataset("van_resize\\*.jpg")
 # Data and labels are read 
 
-train_set_x += Data[:500]
-val_set_x += Data[501:600]
-test_set_x += Data[601:840]
-for i in range(500):
+train_set_x += Data[:16170]
+val_set_x += Data[16171:16271]
+test_set_x += Data[16272:23100]
+for i in range(16170):
     train_set_y.append('4')
 for i in range(100):
     val_set_y.append('4')
-for i in range(240):
+for i in range(6830):
     test_set_y.append('4')
 
 # Data, y = dir_to_dataset("bus_resize\\*.jpg")

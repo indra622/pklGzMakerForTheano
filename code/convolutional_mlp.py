@@ -117,9 +117,9 @@ class LeNetConvPoolLayer(object):
         self.input = input
 
 
-def evaluate_lenet5(learning_rate=0.1, n_epochs=200,
+def evaluate_lenet5(learning_rate=0.002, n_epochs=200,
                     dataset='file_811.pkl.gz',
-                    nkerns=[50, 125], batch_size=500): #batch_size = 500
+                    nkerns=[32, 64, 128], batch_size=500): #batch_size = 500
     """ Demonstrates lenet on MNIST dataset
 
     :type learning_rate: float
@@ -194,24 +194,32 @@ def evaluate_lenet5(learning_rate=0.1, n_epochs=200,
         poolsize=(2, 2)
     )
 
+    layer1_1 = LeNetConvPoolLayer(
+        rng,
+        input=layer1.output,
+        image_shape=(batch_size, nkerns[1], 22, 8),
+        filter_shape=(nkerns[2], nkerns[1], 5, 5),
+        poolsize=(2, 2)
+    )
+
     
     # the HiddenLayer being fully-connected, it operates on 2D matrices of
     # shape (batch_size, num_pixels) (i.e matrix of rasterized images).
     # This will generate a matrix of shape (batch_size, nkerns[1] * 22 * 8),
     # or (500, 50 * 22 * 8) = (500, 8800) with the default values.
-    layer2_input = layer1.output.flatten(2)
+    layer2_input = layer1_1.output.flatten(2)
 
     # construct a fully-connected sigmoidal layer
     layer2 = HiddenLayer(
         rng,
         input=layer2_input,
-        n_in=nkerns[1] *  22 * 8,
-        n_out=500,
+        n_in=nkerns[2] *  9 * 2,
+        n_out=800,
         activation=T.tanh
     )
 
     # classify the values of the fully-connected sigmoidal layer
-    layer3 = LogisticRegression(input=layer2.output, n_in=500, n_out=5)
+    layer3 = LogisticRegression(input=layer2.output, n_in=800, n_out=5)
 
     # the cost we minimize during training is the NLL of the model
     cost = layer3.negative_log_likelihood(y)

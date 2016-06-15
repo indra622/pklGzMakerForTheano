@@ -31,6 +31,7 @@ def dir_to_dataset(glob_files):
 f = gzip.open('file.pkl.gz','wb')
 # 클래스별 데이터 삽입
 Data = dir_to_dataset("bike_resize/*.jpg")
+np.random.shuffle(Data)
 trn_size = 588
 val_size = 168
 val_idx = trn_size+1+val_size
@@ -62,6 +63,7 @@ cPickle.dump(dataset, f, protocol=2)
 
 Data = dir_to_dataset("bus_resize/*.jpg")
 # Data and labels are read 
+np.random.shuffle(Data)
 trn_size = 1638
 val_size = 546
 val_idx = trn_size+1+val_size
@@ -87,6 +89,7 @@ dataset = [train_set, val_set, test_set]
 cPickle.dump(dataset, f, protocol=2)
 Data = dir_to_dataset("sedan_resize/*.jpg")
 # Data and labels are read 
+np.random.shuffle(Data)
 
 trn_size = 15498
 val_size = 5166
@@ -114,6 +117,7 @@ cPickle.dump(dataset, f, protocol=2)
 
 Data = dir_to_dataset("truck_resize/*.jpg")
 # Data and labels are read 
+np.random.shuffle(Data)
 
 trn_size = 7308
 val_size = 2436
@@ -140,6 +144,7 @@ dataset = [train_set, val_set, test_set]
 cPickle.dump(dataset, f, protocol=2)
 Data = dir_to_dataset("van_resize/*.jpg")
 # Data and labels are read 
+np.random.shuffle(Data)
 
 
 trn_size = 13860

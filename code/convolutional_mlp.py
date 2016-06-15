@@ -119,7 +119,7 @@ class LeNetConvPoolLayer(object):
 
 def evaluate_lenet5(learning_rate=0.1, n_epochs=200,
                     dataset='file_811.pkl.gz',
-                    nkerns=[100, 250], batch_size=500): #batch_size = 500
+                    nkerns=[50, 125], batch_size=500): #batch_size = 500
     """ Demonstrates lenet on MNIST dataset
 
     :type learning_rate: float

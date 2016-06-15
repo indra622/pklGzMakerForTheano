@@ -16,7 +16,7 @@ def dir_to_dataset(glob_files):
         img = Image.open(file_name).convert('LA') #tograyscale
         pixels = [f[0] for f in list(img.getdata())]
         dataset.append(pixels)
-        if file_count % 500 == 0:
+        if file_count % 1000 == 0:
             print("\t %s files processed"%file_count)
 
     return np.array(dataset)
@@ -28,7 +28,7 @@ def dir_to_dataset(glob_files):
     # else:
     #     return np.array(dataset)
 
-f = gzip.open('file.pkl.gz','wb')
+f = gzip.open('file3.pkl.gz','wb')
 # 클래스별 데이터 삽입
 Data = dir_to_dataset("bike_resize/*.jpg")
 np.random.shuffle(Data)
@@ -50,18 +50,8 @@ for i in range(trn_size):
 for i in range(val_size):
 	val_set_y.append('0')
 	test_set_y.append('0')
-# Divided dataset into 3 parts. I had 6281 images.
-train_set = train_set_x, train_set_y
-val_set = val_set_x, val_set_y
-test_set = test_set_x, val_set_y
-
-dataset = [train_set, val_set, test_set]
 
 
-cPickle.dump(dataset, f, protocol=2)
-f.close()
-
-f = gzip.open('file.pkl.gz','a')
 Data = dir_to_dataset("bus_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
@@ -71,25 +61,15 @@ val_idx = trn_size+1+val_size
 data_size = 2730
 # Data and labels are read 
 
-train_set_x = Data[:trn_size]
-val_set_x = Data[trn_size+1:val_idx]
-test_set_x = Data[val_idx+1:data_size]
+train_set_x = np.concatenate((train_set_x,Data[:trn_size]))
+val_set_x = np.concatenate((val_set_x,Data[trn_size+1:val_idx]))
+test_set_x = np.concatenate((test_set_x,Data[val_idx+1:data_size]))
 for i in range(trn_size):
     train_set_y.append('1')
 for i in range(val_size):
     val_set_y.append('1')
     test_set_y.append('1')
 
-train_set = train_set_x, train_set_y
-val_set = val_set_x, val_set_y
-test_set = test_set_x, val_set_y
-
-dataset = [train_set, val_set, test_set]
-
-cPickle.dump(dataset, f, protocol=2)
-f.close()
-
-f = gzip.open('file.pkl.gz','a')
 Data = dir_to_dataset("sedan_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
@@ -100,26 +80,15 @@ val_idx = trn_size+1+val_size
 data_size = 25830
 # Data and labels are read 
 
-train_set_x = Data[:trn_size]
-val_set_x = Data[trn_size+1:val_idx]
-test_set_x = Data[val_idx+1:data_size]
+
+train_set_x = np.concatenate((train_set_x,Data[:trn_size]))
+val_set_x = np.concatenate((val_set_x,Data[trn_size+1:val_idx]))
+test_set_x = np.concatenate((test_set_x,Data[val_idx+1:data_size]))
 for i in range(trn_size):
     train_set_y.append('2')
 for i in range(val_size):
     val_set_y.append('2')
     test_set_y.append('2')
-
-train_set = train_set_x, train_set_y
-val_set = val_set_x, val_set_y
-test_set = test_set_x, val_set_y
-
-dataset = [train_set, val_set, test_set]
-
-
-cPickle.dump(dataset, f, protocol=2)
-f.close()
-
-f = gzip.open('file.pkl.gz','a')
 
 Data = dir_to_dataset("truck_resize/*.jpg")
 # Data and labels are read 
@@ -131,26 +100,14 @@ val_idx = trn_size+1+val_size
 data_size = 12180
 # Data and labels are read 
 
-train_set_x = Data[:trn_size]
-val_set_x = Data[trn_size+1:val_idx]
-test_set_x = Data[val_idx+1:data_size]
+train_set_x = np.concatenate((train_set_x,Data[:trn_size]))
+val_set_x = np.concatenate((val_set_x,Data[trn_size+1:val_idx]))
+test_set_x = np.concatenate((test_set_x,Data[val_idx+1:data_size]))
 for i in range(trn_size):
     train_set_y.append('3')
 for i in range(val_size):
     val_set_y.append('3')
     test_set_y.append('3')
-
-train_set = train_set_x, train_set_y
-val_set = val_set_x, val_set_y
-test_set = test_set_x, val_set_y
-
-dataset = [train_set, val_set, test_set]
-
-
-cPickle.dump(dataset, f, protocol=2)
-f.close()
-
-f = gzip.open('file.pkl.gz','a')
 
 Data = dir_to_dataset("van_resize/*.jpg")
 # Data and labels are read 
@@ -163,22 +120,55 @@ val_idx = trn_size+1+val_size
 data_size = 23100
 # Data and labels are read 
 
-train_set_x = Data[:trn_size]
-val_set_x = Data[trn_size+1:val_idx]
-test_set_x = Data[val_idx+1:data_size]
+train_set_x = np.concatenate((train_set_x,Data[:trn_size]))
+val_set_x = np.concatenate((val_set_x,Data[trn_size+1:val_idx]))
+test_set_x = np.concatenate((test_set_x,Data[val_idx+1:data_size]))
 for i in range(trn_size):
     train_set_y.append('4')
 for i in range(val_size):
     val_set_y.append('4')
     test_set_y.append('4')
 
+train_set_x2 = list()
+train_set_y2 = list()
+val_set_x2 = list()
+val_set_y2 = list()
+test_set_x2 = list()
+test_set_y2 = list()
 
-train_set = train_set_x, train_set_y
-val_set = val_set_x, val_set_y
-test_set = test_set_x, val_set_y
+print len(train_set_x)
+arr = np.arange(len(train_set_x))
+np.random.shuffle(arr)
+
+for i in arr:
+    train_set_x2.append(train_set_x[i])
+    train_set_y2.append(train_set_y[i])
+
+print "train shuffling completed...."
+arr = np.arange(len(val_set_x))
+np.random.shuffle(arr)
+
+for i in arr:
+    val_set_x2.append(val_set_x[i])
+    val_set_y2.append(val_set_y[i])
+
+print "validation shuffling completed...."
+arr = np.arange(len(test_set_x))
+np.random.shuffle(arr)
+
+for i in arr:
+    test_set_x2.append(test_set_x[i])
+    test_set_y2.append(test_set_y[i])
+
+print "test shuffling completed....."
+
+train_set = train_set_x2, train_set_y2
+val_set = val_set_x2, val_set_y2
+test_set = test_set_x2, val_set_y2
 
 dataset = [train_set, val_set, test_set]
-
-
+print "dataset merged"
+print "dumping...."
 cPickle.dump(dataset, f, protocol=2)
+print "completed!"
 f.close()

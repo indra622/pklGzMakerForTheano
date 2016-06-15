@@ -59,9 +59,8 @@ dataset = [train_set, val_set, test_set]
 
 
 cPickle.dump(dataset, f, protocol=2)
-f.close()
 
-f = gzip.open('file.pkl.gz','a')
+
 Data = dir_to_dataset("bus_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
@@ -86,10 +85,8 @@ test_set = test_set_x, val_set_y
 
 dataset = [train_set, val_set, test_set]
 
-cPickle.dump(dataset, f, protocol=2)
-f.close()
 
-f = gzip.open('file.pkl.gz','a')
+cPickle.dump(dataset, f, protocol=2)
 Data = dir_to_dataset("sedan_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
@@ -117,9 +114,6 @@ dataset = [train_set, val_set, test_set]
 
 
 cPickle.dump(dataset, f, protocol=2)
-f.close()
-
-f = gzip.open('file.pkl.gz','a')
 
 Data = dir_to_dataset("truck_resize/*.jpg")
 # Data and labels are read 
@@ -148,10 +142,6 @@ dataset = [train_set, val_set, test_set]
 
 
 cPickle.dump(dataset, f, protocol=2)
-f.close()
-
-f = gzip.open('file.pkl.gz','a')
-
 Data = dir_to_dataset("van_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)

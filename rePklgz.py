@@ -28,12 +28,12 @@ def dir_to_dataset(glob_files):
     # else:
     #     return np.array(dataset)
 
-f = gzip.open('file3.pkl.gz','wb')
+f = gzip.open('file_881.pkl.gz','wb')
 # 클래스별 데이터 삽입
 Data = dir_to_dataset("bike_resize/*.jpg")
 np.random.shuffle(Data)
-trn_size = 588
-val_size = 168
+trn_size = 672#588
+val_size = 84#168
 val_idx = trn_size+1+val_size
 data_size = 840
 # Data and labels are read 
@@ -55,8 +55,8 @@ for i in range(val_size):
 Data = dir_to_dataset("bus_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
-trn_size = 1638
-val_size = 546
+trn_size = 2184#1638
+val_size = 273#546
 val_idx = trn_size+1+val_size
 data_size = 2730
 # Data and labels are read 
@@ -74,8 +74,8 @@ Data = dir_to_dataset("sedan_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
 
-trn_size = 15498
-val_size = 5166
+trn_size = 20664#15498
+val_size = 2583#5166
 val_idx = trn_size+1+val_size
 data_size = 25830
 # Data and labels are read 
@@ -94,8 +94,8 @@ Data = dir_to_dataset("truck_resize/*.jpg")
 # Data and labels are read 
 np.random.shuffle(Data)
 
-trn_size = 7308
-val_size = 2436
+trn_size = 9744#7308
+val_size = 1218#2436
 val_idx = trn_size+1+val_size
 data_size = 12180
 # Data and labels are read 
@@ -114,8 +114,8 @@ Data = dir_to_dataset("van_resize/*.jpg")
 np.random.shuffle(Data)
 
 
-trn_size = 13860
-val_size = 4620
+trn_size = 18480#13860
+val_size = 2310#4620
 val_idx = trn_size+1+val_size
 data_size = 23100
 # Data and labels are read 
@@ -163,8 +163,8 @@ for i in arr:
 print "test shuffling completed....."
 
 train_set = train_set_x2, train_set_y2
-val_set = val_set_x2, val_set_y2
-test_set = test_set_x2, val_set_y2
+val_set = train_set_x2, train_set_y2
+test_set = test_set_x2, test_set_y2
 
 dataset = [train_set, val_set, test_set]
 print "dataset merged"

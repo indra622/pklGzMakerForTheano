@@ -12,4 +12,4 @@ dataset
 trn/val/tst
 6/2/2
 
-![image](https://cloud.githubusercontent.com/assets/7467605/16076206/28603806-332d-11e6-94b0-7762e6a84069.png)
+![image](https://cloud.githubusercontent.com/assets/7467605/16002837/9892b5c6-3194-11e6-862f-02576f3cadac.png)

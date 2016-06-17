@@ -1,7 +1,7 @@
 # pklGzMakerForTheano
 
 theano나 tensorflow 등 각종 DNN 관련 tutorial에서 예시로 쓰이는 mnist.pkl.gz파일의 format대로 만드는 file과, test file인 CNN으로 구성되어 있습니다.
-
+This project is about making a file format like 'mnist.pkl.gz' file that used for an example of DNN tutorial, such as theano, tensorflow. and have test code that is about Convolutional Neural Network.
 
 ## 사용 방법 (Usage)
  

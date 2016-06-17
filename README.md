@@ -1,7 +1,17 @@
 # pklGzMakerForTheano
-mnist.pkl.gz format maker
 
-http://stackoverflow.com/questions/26107927/how-to-put-my-dataset-in-a-pkl-file-in-the-exact-format-and-data-structure-used
+theano나 tensorflow 등 각종 DNN 관련 tutorial에서 예시로 쓰이는 mnist.pkl.gz파일의 format대로 만드는 file과, test file인 CNN으로 구성되어 있습니다.
+
+
+## 사용 방법 (Usage)
+ 
+## 남은 할 일 (TODO)
+
+## References
+
+* CNN code 출처: https://github.com/lisa-lab/DeepLearningTutorials
+
+* 참고 : http://stackoverflow.com/questions/26107927/how-to-put-my-dataset-in-a-pkl-file-in-the-exact-format-and-data-structure-used
 
 TODO
 

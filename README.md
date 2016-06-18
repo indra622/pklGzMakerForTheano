@@ -6,6 +6,7 @@ This project is about making a file format like 'mnist.pkl.gz' file that used fo
 예시 로 사용한 dataset은 AVV(Audio Visual Vehicle) dataset입니다. class를 5개로 나누어 사용하였습니다.
 
 classes / training set / validation set / test set
+
 ![image](https://cloud.githubusercontent.com/assets/7467605/16002837/9892b5c6-3194-11e6-862f-02576f3cadac.png)
 
 ## 사용 방법 (Usage)

@@ -29,6 +29,10 @@ python repklgz.py
  
 ## 남은 할 일 (TODO)
 
+* labeling하는 방법 여러가지 만들어보기
+* 만들어진 파일 test모듈만들기
+
+
 ## References
 
 * CNN code 출처: https://github.com/lisa-lab/DeepLearningTutorials

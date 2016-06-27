@@ -7,6 +7,15 @@ from glob import glob
 import numpy as np
 import pandas as pd
 
+data0 = "bike_resize/*.jpg"
+data1 = "bus_resize/*.jpg"
+data2 = "sedan_resize/*.jpg"
+data3 = "truck_resize/*.jpg"
+data4 = "van_resize/*.jpg"
+
+# for windows, use this form, "bike_resize\\*.jpg" 
+
+
 # def dir_to_dataset(glob_files, loc_train_labels=""):
 def dir_to_dataset(glob_files):
     print("Gonna process:\n\t %s"%glob_files)
@@ -30,7 +39,7 @@ def dir_to_dataset(glob_files):
 
 f = gzip.open('file_622.pkl.gz','wb')
 # 클래스별 데이터 삽입
-Data = dir_to_dataset("bike_resize/*.jpg")
+Data = dir_to_dataset(data0)
 np.random.shuffle(Data)
 trn_size = 588
 val_size = 168
@@ -52,7 +61,7 @@ for i in range(val_size):
 	test_set_y.append('0')
 
 
-Data = dir_to_dataset("bus_resize/*.jpg")
+Data = dir_to_dataset(data1)
 # Data and labels are read 
 np.random.shuffle(Data)
 trn_size = 1638
@@ -70,7 +79,7 @@ for i in range(val_size):
     val_set_y.append('1')
     test_set_y.append('1')
 
-Data = dir_to_dataset("sedan_resize/*.jpg")
+Data = dir_to_dataset(data2)
 # Data and labels are read 
 np.random.shuffle(Data)
 
@@ -90,7 +99,7 @@ for i in range(val_size):
     val_set_y.append('2')
     test_set_y.append('2')
 
-Data = dir_to_dataset("truck_resize/*.jpg")
+Data = dir_to_dataset(data3)
 # Data and labels are read 
 np.random.shuffle(Data)
 
@@ -109,7 +118,7 @@ for i in range(val_size):
     val_set_y.append('3')
     test_set_y.append('3')
 
-Data = dir_to_dataset("van_resize/*.jpg")
+Data = dir_to_dataset(data4)
 # Data and labels are read 
 np.random.shuffle(Data)
 

@@ -34,7 +34,7 @@ f = gzip.open('file_out.pkl.gz','wb')
 # insert input data and class
 
 #1st class
-Data = dir_to_dataset("detect_hand_newnum/*.jpg")
+Data = dir_to_dataset("classify_1/*.jpg")
 #np.random.shuffle(Data) #random shuffle readed data
 trn_size = 60000 #train data size
 val_size = 10000 #validation data size
@@ -65,7 +65,7 @@ for i in range(test_idx):
 
 
 #2nd class
-Data = dir_to_dataset("detect_neg_newnum/*.jpg")
+Data = dir_to_dataset("classify_2/*.jpg")
 # Data and labels are read  #random shuffle readed data
 #np.random.shuffle(Data)
 trn_size = 60000	#train data size

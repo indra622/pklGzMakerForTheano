@@ -13,16 +13,16 @@ classes / training set / validation set / test set
 
 ## 사용 방법 (Usage)
 
-1. 같은 디렉토리에 해당 db의 data를 넣습니다.
-2. 폴더별로 labelling됩니다.
-3. 코드에 들어가서 폴더를 지정합니다.
-4. 스크립트를 실행합니다.
+*  같은 디렉토리에 해당 db의 data를 넣습니다.
+*  폴더별로 labelling됩니다.
+*  코드에 들어가서 폴더를 지정합니다.
+*  스크립트를 실행합니다.
 
-
-1. put your database files in data directory
-2. the files are labled by folders.
-3. modify folder name in repklgz.py code 
-4. execute repklgz.py script
+English
+*  put your database files in data directory
+*  the files are labled by folders.
+*  modify folder name in repklgz.py code 
+*  execute repklgz.py script
 python repklgz.py
 
 
